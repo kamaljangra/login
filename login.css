@@ -1,0 +1,112 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #25252b;
+}
+.login_box{
+    position: relative;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: repeating-conic-gradient(from var(--a),#ff2770 0%,#ff2770 5%, transparent 5%, transparent 35%,#ff2770 50%);
+    animation: animate 4s linear infinite;
+    border-radius: 20px;
+}
+.login_box::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: repeating-conic-gradient(from var(--a)
+    ,#45f3ff 0%,
+    #45f3ff 5%, transparent 5%, transparent 35%,
+    #45f3ff 50%);
+    animation: animate 4s linear infinite;
+    border-radius: 20px;
+    animation-delay: -1s;
+}
+@property --a{
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+}
+@keyframes animate {
+    0%{
+        --a:0deg;
+    }
+    100%{
+        --a:360deg;
+    }
+}
+.login_box::after{
+    content: '';
+    position: absolute;
+    inset:3px;
+    background: #2d2d39;
+    border: 9px solid #25252b;
+    border-radius: 15px;
+}
+.login_box form{
+    position:relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    justify-content: center;
+    align-items: center;
+    padding: 0 40px;
+    /* border: 1px solid red; */
+    z-index: 2;
+}
+.login_box form h2{
+    color: #fff;
+    font-weight: 1000;
+}
+.login_box form input{
+    position: relative;
+    width: 85%;
+    background: rgba(225,255,255,0.1);
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1em;
+    letter-spacing: 0.05em;
+}
+.login_box form input::placeholder{
+    color: rgba(225,255,255,0.5);
+}
+.login_box form input[type="submit"]{
+    font-weight: 600px;
+    background: #fff;
+    color: #2d2d39;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.login_box form input[type="submit"]:hover{
+    background: #ff2770;
+}
+.login_box form .group{
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+}
+.login_box form .group a{
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+}
+.login_box form .group a:last-child{
+    color: #45f3ff;
+    font-weight: 800;
+}
